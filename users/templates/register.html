@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% from 'bootstrap/form.html' import render_form %}
+
+{% block content %}
+    <h2>Here you can register your user account</h2>
+    <br>
+    <form method='post' action="{{ url_for('users_bp.register') }}">
+        {{ form.csrf_token }}
+        {{ render_form(form) }}
+    </form>
+
+{% endblock content %}

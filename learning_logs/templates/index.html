@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block page_header %}
+    <div class="jumbotron">
+        <h1  class="display-4">Track your learning</h1>
+
+        {% if current_user.is_authenticated %}
+        <p class="lead">Whats up {{ current_user.username }}! You're on your Learning Logs. Go to Topics to check out your topics and make new one. 
+            Don't forget to add an entry after you've learned something. Keep tracking your progress!
+        </p>
+        {% else %}  
+        <p class="lead">Hey dude! Welcome to the Learning Logs! You can make your own Learning Log here, and keep a list of the topics you're learning about. 
+            Whenever you learn something new about a topic, make an entry summarizing what you've learned.
+        </p>
+        
+        <a class="btn btn-lg btn-primary" href="{{ url_for('users_bp.register') }}" role="button">Register &raquo;</a>
+        {% endif %} 
+
+    </div>
+{% endblock page_header %}

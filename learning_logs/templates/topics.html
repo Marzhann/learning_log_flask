@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block page_header %}
+    <h2>Your topics:</h2>
+{% endblock page_header %}
+    
+{% block content %}
+    <ul>
+        {% for topic in topics %}
+            <li>
+                <a href="{{ url_for('ll_bp.topic', **{'topic_id': topic.id}) }}">{{ topic.name }}</a>
+            </li>
+        {% endfor %}    
+    </ul>
+
+    <a class="btn btn-outline-success my-2 my-sm-0" href="{{ url_for('ll_bp.add_topic') }}" role="button">Add new topic</a>
+    
+{% endblock content %}
+
+
+

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block page_header %}
+    <h2>Edit the entry</h2>
+{% endblock page_header %}
+
+{% block content %}
+    <form method='post' action="{{ url_for('ll_bp.edit_entry', **{'entry_id': entry.id}) }}">
+        <div class="form-group">
+            <textarea class="form-control" name="text" id="text" placeholder="Entry text" rows="3">{{ entry.text }}</textarea>
+        </div>
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Submit</button>
+    </form>
+
+{% endblock content %}
